@@ -1,0 +1,60 @@
+
+If you are using Raspbian, all you need to do to install the latest release is:
+
+$ sudo apt-get update
+$ sudo apt-get dist-upgrade
+$ sudo apt-get install python-dev python3-dev
+$ sudo apt-get install python-rpi.gpio python3-rpi.gpio
+$ sudo apt-get install python-pip python3-pip
+
+$ sudo pip install bottle
+$ sudo pip3 install bottle
+
+To install the module:
+$ sudo python setup.py install
+$ sudo python3 setup.py install
+
+------------
+$ sudo apt install unattended-upgrades
+$ dpkg-reconfigure -priority=low unattended-upgrades
+
+$ git clone https://github.com/r10r/rcswitch-pi.git
+$ git clone https://github.com/ninjablocks/433Utils.git
+$ git clone git://github.com/xkonni/raspberry-remote.git
+$ git clone https://github.com/andreafabrizi/Dropbox-Uploader.git
+
+$ git clone git://git.drogon.net/wiringPi
+ 
+------------
+
+$ update-rc.d /etc/init.d/switch.sh defaults
+
+------------
+$ sudo blkid -o list -w /dev/null
+$ ls -l /dev/disk/by-uuid/
+
+$ apt-get install ntfs-3g
+$ mkdir /media/usb
+$ chown -R pi:pi /media/usb
+$ mount /dev/sda1 /media/usb -o uid=pi,gid=pi
+
+$ sudo cat "	UUID=18A9-9943 /media/usb auto,users,rw,uid=pi,gid=pi 0 0" >> /etc/fstab
+
+------------
+
+$ crontab -e
+
+*/5 * * * * sudo reconnect.sh
+
+------------
+
+$ cat /proc/cpuinfo
+
+Hardware        : BCM2709
+Revision        : a01041
+Serial          : 000000002d85b939
+
+$ sudo vi /boot/config.txt
+
+decode_MPG2=0x2e4b23d2
+decode_WVC1=0x155f98ee
