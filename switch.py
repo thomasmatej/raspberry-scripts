@@ -27,7 +27,7 @@ Pins={ 'A':'1', 'B':'2', 'C':'3', 'D':'4', 'ON':'1', 'OFF':'0' }
 # Switches "switch" to ON or OFF state
 # Parameters are "switch" (A,B,C,D) and "state" (ON,OFF)
 def setSwitch(switch, state):
-	os.system("sudo /home/pi/rcswitch-pi/send 11111 " + Pins[switch] + " " + Pins[state])
+	os.system("sudo send 11111 " + Pins[switch] + " " + Pins[state])
 	#GPIO.output(Pins[switch], True)
 	#GPIO.output(Pins[state], True)
 	#time.sleep(WaitTime)
